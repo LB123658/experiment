@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Art ovals</title>
+</head>
+<body>
+<script>
+document.body.style.background = "black";
+document.body.style.fontFamily = "monospace";
+
+var shade = ["red","orange","yellow","green","blue","purple","pink","white"];
+
+function draw(color) {
+var a = document.createElement("div");
+a.style.background = color;
+a.style.width = Math.random() * 10 + "%";
+a.style.height = Math.random() * 10 + "%";
+a.style.position = "absolute";
+a.style.left = Math.random() * 100 + "%";
+a.style.bottom = Math.random() * 100 + "%";
+a.style.borderRadius = "50%";
+document.body.appendChild(a);
+}
+
+function drawing() {
+draw(shade[Math.floor(Math.random() * 8)]);
+}
+setInterval(drawing, 10);
+</script>
+</body>
+</html>

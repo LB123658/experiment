@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Editor</title>
+<style>
+#input {
+position:absolute;
+top: 10%;
+left: 0px;
+height: 90%;
+width: 50%;
+border: none;
+resize: none;
+background: black;
+color: white;
+}
+#input:focus {
+outline: none;
+}
+body {
+overflow: hidden;
+}
+#output {
+position :absolute;
+top: 0px;
+left: 50%;
+height: 100%;
+width: 50%;
+border: none;
+resize:none;
+}
+#button {
+position: absolute; 
+top: 0px;
+left: 0px;
+width: 50%;
+height: 10%;
+background: grey; 
+font-size: 30px;
+border: none;
+cursor: default;
+}
+#button:hover 
+{font-size: 35px;
+}
+</style>
+</head>
+<body>
+<textarea id="input" placeholder="Write here..." resize="none"></textarea>
+<iframe id="output"></iframe>
+<button id="button" onclick="run()">Go ></button>
+<script>
+var input = document.getElementById("input");
+var output = document.getElementById("output");
+
+
+output.contentWindow.document.write(localStorage.getItem("running_code"));
+input.value = localStorage.getItem("running_code");
+input.focus();
+console.log("Loaded");
+
+function run() {
+localStorage.setItem("running_code",input.value);
+location.reload();
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tic Tac Toe</title>
+<style>
+#container {
+position: fixed;
+top: 50%;
+left: 50%;
+width: 600px;
+height: 600px;
+margin: -300px;
+text-align: center;
+}
+#container button {
+width: 195px;
+height: 195px;
+background: transparent;
+margin: 1px;
+border: 1px solid white;
+transition: background 0.1s, transform 0.3s;
+margin: 0px;
+font-size: 60px;
+color: white;
+}
+#container button:hover {
+background: #181818;
+transform: scale(1.15);
+}
+body {
+user-select: none;
+overflow: hidden;
+background: black;
+color: white;
+font-family: arial;
+font-size: 20px;
+}
+#loading {
+z-index: 2;
+width: 100%;
+height: 100%;
+position: fixed;
+top: 0px;
+left: 0px;
+background: black;
+color: white;
+text-align: center;
+}
+#loading h2 {
+font-size: 100px;
+}
+#rotate {
+border: 20px solid white;
+border-top: 20px solid transparent;
+width: 200px;
+height: 200px;
+border-radius: 50%;
+position: absolute;
+top: 50%;
+left: 50%;
+margin: -100px -100px;
+background: transparent;
+font-size: 100px;
+animation: turn 3s infinite;
+}
+@keyframes turn {
+0% {transform: rotate(0deg)}
+100% {transform: rotate(360deg)}
+}
+#playAgain {
+position: absolute;
+bottom: 20px;
+left: 50%;
+width: 200px;
+height: 40px;
+border: none;
+background: white;
+color: black;
+margin-left: -100px;
+font-size: 25px;
+transition: transform 0.3s;
+visibility: hidden;
+}
+#playAgain:hover {
+transform: scale(1.15);
+}
+</style>
+</head>
+<body>
+Tic Tac Toe
+<div id="container">
+<button id="1" onclick="claim(this)">&nbsp;</button>
+<button id="2" onclick="claim(this)">&nbsp;</button>
+<button id="3" onclick="claim(this)">&nbsp;</button>
+<button id="4" onclick="claim(this)">&nbsp;</button>
+<button id="5" onclick="claim(this)">&nbsp;</button>
+<button id="6" onclick="claim(this)">&nbsp;</button>
+<button id="7" onclick="claim(this)">&nbsp;</button>
+<button id="8" onclick="claim(this)">&nbsp;</button>
+<button id="9" onclick="claim(this)">&nbsp;</button>
+</div>
+<button id="playAgain" onclick="location.reload()">Play Again</button>
+<div id="loading">
+<h2>Tic Tac Toe</h2>
+<button id="rotate" style="color:white;">X</button>
+</div>
+<script>
+setTimeout(function(){document.getElementById("loading").remove();},3500);
+var symbol = "X";
+var color = "crimson";
+var count = 0;
+function claim(element) {
+element.innerHTML = symbol;
+element.style.pointerEvents = "none";
+element.style.background = color;
+count++
+changeSymbol(symbol);
+}
+
+function changeSymbol(a) {
+  if (a == "X") {
+    symbol = "O";
+    color = "teal";
+  } 
+  if (a == "O") {
+    symbol = "X";
+    color = "crimson";
+  }
+  if (count > 8) {
+    setTimeout(function(){document.getElementById("playAgain").style.visibility="visible";}, 300);
+  }
+}
+</script>
+</body>
+</html>

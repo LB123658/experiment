@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tangent</title>
+</head>
+<body>
+<script>
+document.body.style.overflow = "auto";
+setInterval(x,10);
+x = 0;
+
+function x() {
+x++;
+var y = Math.tan(x) + 100;
+var a = document.createElement("div");
+a.style.width = "2px";
+a.style.height = "2px";
+a.style.background = "black";
+a.style.position = "absolute";
+a.style.left = x + "px";
+a.style.bottom = y + "px";
+document.body.appendChild(a);
+console.log(x + ", " + y);
+}
+
+</script>
+</body>
+</html>

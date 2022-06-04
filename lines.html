@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Line experiment</title>
+</head>
+<body>
+<script>
+document.body.style.overflow = "auto";
+document.body.style.background = "black";
+document.body.style.textAlign = "center";
+
+setInterval(draw, 0);
+
+function draw() {
+var a = document.createElement("div");
+a.style.height = "1px";
+a.style.background = "white";
+a.style.width = Math.random() * 100 + "%";
+document.body.appendChild(a);
+}
+</script>
+</body>
+</html>

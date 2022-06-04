@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Circle</title>
+</head>
+<body>
+<script>
+document.body.style.background = "black";
+document.body.style.fontFamily = "monospace";
+
+var shade = ["red","orange","yellow","green","blue","purple","pink","white"];
+
+
+function draw(color) {
+var rotate = "rotate(" + Math.floor(Math.random() * 360) + "deg)";
+var a = document.createElement("div");
+a.style.background = color;
+a.style.width = "0.1px";
+a.style.height = "75%";
+a.style.position = "absolute";
+a.style.left = "50%";
+a.style.bottom = "12.5%";
+a.style.transform = rotate;
+document.body.appendChild(a);
+}
+
+function drawing() {
+draw(shade[Math.floor(Math.random() * 8)]);
+}
+setInterval(drawing, 0);
+
+</script>
+</body>
+</html>

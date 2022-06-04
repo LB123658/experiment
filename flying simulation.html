@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Flying simulation</title>
+<style>
+div {
+transition: left 2s, bottom 2s, width 3s, height 3s;
+}
+@keyframes bounce {
+0% {transform: translateY(0px)}
+10% {transform: translateY(5px)}
+20% {transform: translateY(0px)}
+30% {transform: translateY(-5px)}
+40% {transform: translateY(0px)}
+50% {transform: translateY(5px)}
+60% {transform: translateY(0px)}
+70% {transform: translateY(-5px)}
+80% {transform: translateY(0px)}
+90% {transform: translateY(5px)}
+100% {transform: translateY(0px)}
+}
+</style>
+</head>
+<body>
+<script>
+document.body.style.overflow = "hidden";
+document.body.style.background = "black";
+var colors = ["red","orange","yellow","green","blue","purple","pink","white"];
+var letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+setInterval(draw,0);
+var num = 0;
+function draw() {
+num++;
+var y = Math.random() * 100;
+var x = Math.random() * 100;
+var dotName = letters[Math.floor(Math.random() * 25)].toUpperCase() + letters[Math.floor(Math.random() * 25)];
+var a = document.createElement("div");
+a.id = dotName;
+a.style.width = "5px";
+a.style.height = "5px";
+a.style.background = colors[Math.floor(Math.random() * 8)];
+a.style.position = "absolute";
+a.style.left = x + "%";
+a.style.bottom = y + "%";
+setTimeout(function() {a.style.left = "50%";a.style.bottom = "50%";a.style.width = "1px";a.style.height = "1px";}, 0);
+setTimeout(function() {a.remove();},2000);
+a.onclick = function() {alert("Information about this dot: \n Coordinates: " + x + ", " + y + "\n Color: " + a.style.background + "\n Name: " + dotName);};
+document.body.appendChild(a);
+console.log(x + ", " + y + "; Color: " + a.style.background + "; Total dots: " + num + "; Name: " + dotName);
+}
+
+</script>
+</body>
+</html>
